@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drumset</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="page">
+
+        <header class="header">
+            <h1>Drumset</h1>
+            <p>Click any piece to play it.</p>
+        </header>
+
+        <main class="stage">
+
+             <button class="drum piece crash-left"
+                 data-sound="crash"
+                 data-color="#f97316">
+                 <img src="images/crash.png" alt="Crash cymbal (left)" />
+             </button>
+
+            <button class="drum piece crash-right"
+                 data-sound="crash"
+                 data-color="#f97316">
+                <img src="images/crash.png" alt="Crash cymbal (right)" />
+             </button>
+
+    <button class="drum piece tom1"
+            data-sound="tom-1"
+            data-color="#facc15">
+        <img src="images/tom1.png" alt="High tom" />
+    </button>
+
+    <button class="drum piece tom2"
+            data-sound="tom-2"
+            data-color="#fb7185">
+        <img src="images/tom2.png" alt="Mid tom" />
+    </button>
+
+    <button class="drum piece floor-tom-left"
+            data-sound="tom-3"
+            data-color="#22c55e">
+        <img src="images/tom3.png" alt="Floor tom left" />
+    </button>
+
+
+    <button class="drum piece floor-tom-right"
+            data-sound="tom-4"
+            data-color="#0ea5e9">
+        <img src="images/tom4.png" alt="Floor tom right" />
+    </button>
+
+    <button class="drum piece snare"
+            data-sound="snare"
+            data-color="#a855f7">
+        <img src="images/snare.png" alt="Snare drum" />
+    </button>
+
+    <button class="drum piece kick"
+            data-sound="kick"
+            data-color="#3b82f6">
+        <img src="images/kick.png" alt="Kick drum" />
+    </button>
+
+        </main>
+
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    <script src="drums.js"></script>
+</body>
+</html>

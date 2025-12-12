@@ -1,0 +1,252 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(180deg, #f3f4f6, #e5e7eb);
+    color: #111827;
+    animation: page-fade-in 600ms ease-out;
+}
+
+.page {
+    width: 100%;
+    max-width: 900px;
+    padding: 1.5rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 1.2rem;
+}
+
+.header h1 {
+    font-size: 2.1rem;
+    letter-spacing: 0.04em;
+    color: #111827;
+}
+
+.header p {
+    margin-top: 0.3rem;
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+.footer {
+    margin-top: 0.8rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.stage {
+    position: relative;
+    margin: 0 auto;
+    width: min(720px, 100%);
+    height: 380px;
+
+    background: #ffffff;
+    border-radius: 1.5rem;
+    border: 1px solid #d4d4d8;
+    box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.18),
+        0 0 0 1px rgba(148, 163, 184, 0.25);
+    overflow: hidden;
+
+    --flash-color: rgba(59, 130, 246, 0.55);
+
+    animation: stage-float 4.5s ease-in-out infinite alternate;
+}
+
+.stage.flash {
+    animation: stage-float 4.5s ease-in-out infinite alternate,
+               stage-flash 380ms ease-out;
+}
+
+.piece {
+    position: absolute;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    transition:
+        transform 140ms ease,
+        filter 140ms ease,
+        box-shadow 140ms ease;
+}
+
+.piece img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.piece:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.25);
+    filter: brightness(1.05);
+}
+
+.piece.hit {
+    animation: drum-hit 170ms ease-out;
+}
+
+.kick {
+    width: 180px;
+    bottom: 12px;
+    left: calc(50% - 90px); 
+    z-index: 2;
+}
+
+.snare {
+    width: 110px;
+    bottom: 110px;
+    right: 4%;
+    z-index: 3;
+}
+
+
+.floor-tom-left {
+    width: 120px;
+    bottom: 110px;
+    left: 4%;
+    z-index: 3;
+}
+
+.floor-tom-right {
+    width: 120px;
+    bottom: 110px;
+    right: 22%;
+    z-index: 3;
+}
+
+.tom1 {
+    width: 115px;
+    bottom: 230px;
+    left: 24%;
+    z-index: 4;
+}
+
+.tom2 {
+    width: 115px;
+    bottom: 230px;
+    right: 24%;
+    z-index: 4;
+}
+
+.crash-left {
+    width: 140px;
+    top: 40px;
+    left: 3%;
+    z-index: 5;
+}
+
+.crash-right {
+    width: 140px;
+    top: 40px;
+    right: 3%;
+    z-index: 5;
+}
+
+@keyframes page-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes stage-float {
+    from {
+        transform: translateY(0);
+        box-shadow:
+            0 18px 40px rgba(15, 23, 42, 0.18),
+            0 0 0 1px rgba(148, 163, 184, 0.25);
+    }
+    to {
+        transform: translateY(-6px);
+        box-shadow:
+            0 26px 55px rgba(15, 23, 42, 0.22),
+            0 0 0 1px rgba(148, 163, 184, 0.35);
+    }
+}
+
+@keyframes stage-flash {
+    0% {
+        box-shadow:
+            0 18px 40px rgba(15, 23, 42, 0.18),
+            0 0 0 1px rgba(148, 163, 184, 0.25);
+        background: #ffffff;
+    }
+    35% {
+        box-shadow:
+            0 18px 40px rgba(15, 23, 42, 0.18),
+            0 0 45px 0 var(--flash-color);
+        background: radial-gradient(circle at 50% 50%,
+            rgba(249, 250, 251, 0.96),
+            #ffffff);
+    }
+    100% {
+        box-shadow:
+            0 18px 40px rgba(15, 23, 42, 0.18),
+            0 0 0 1px rgba(148, 163, 184, 0.25);
+        background: #ffffff;
+    }
+}
+
+@keyframes drum-hit {
+    from {
+        transform: scale(1.02);
+        filter: brightness(1.05);
+    }
+    50% {
+        transform: scale(0.96);
+        filter: brightness(1.18)
+            drop-shadow(0 0 18px rgba(249, 250, 251, 0.8));
+    }
+    to {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@media (max-width: 640px) {
+    .stage {
+        height: 320px;
+    }
+
+    .kick {
+        width: 160px;
+        left: calc(50% - 80px);
+    }
+
+    .snare,
+    .floor-tom-left,
+    .floor-tom-right {
+        width: 100px;
+    }
+
+    .tom1,
+    .tom2 {
+        width: 100px;
+    }
+
+    .crash-left,
+    .crash-right {
+        width: 120px;
+    }
+}

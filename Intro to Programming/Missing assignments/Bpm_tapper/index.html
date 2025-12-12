@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPM Tapper</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-shell">
+
+        <div class="fireflies">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="card">
+
+            <header class="app-header">
+                <h1>BPM Tapper</h1>
+                <p class="tagline">Tap along to the beat and find your tempo.</p>
+            </header>
+
+            <main class="app-main">
+                <section class="display">
+                    <div class="bpm-label">Current BPM</div>
+                    <div id="bpmValue" class="bpm-value">--</div>
+                    <div id="statusText" class="status-text">
+                        Tap the button 10 times at a steady pace.
+                    </div>
+                </section>
+
+                <section class="controls">
+                    <button id="tapButton" class="btn primary">Tap</button>
+                    <button id="resetButton" class="btn ghost">Reset</button>
+                </section>
+
+                <section class="pulse-area">
+                    <div id="pulseCircle" class="pulse-circle"></div>
+                </section>
+            </main>
+
+            <footer class="app-footer">
+            </footer>
+
+        </div>
+    </div>
+    <script src="code.js"></script>
+</body>
+</html>
