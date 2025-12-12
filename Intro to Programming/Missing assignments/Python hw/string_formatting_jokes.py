@@ -1,0 +1,1 @@
+print("\"What do birds hand out on Halloween?\", she said. \"Tweets\".")
